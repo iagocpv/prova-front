@@ -1,0 +1,41 @@
+<mat-toolbar class="toolbar" fxLayout="row">
+  <div fxFlex=18.5 fxLayout="row" fxLayoutAlign="start center">
+    <img id="logo" src="assets/img/logo-p.jpg" fxFlex=15>
+    <span id="title" fxFlex>Projeto <b>Fácil</b></span>
+    <button mat-icon-button>
+      <i class="fas fa-bars" fxFlex=13></i>
+    </button>
+  </div>
+  <div fxFlex fxLayout="row" id="toolbar-options" *ngIf="user$ | async">
+    <div fxFlex=25 fxLayout="row" fxLayoutAlign="end center">
+      <div class="input" fxLayout="row" fxLayoutAlign="space-around center">
+        <input placeholder="Buscar...">
+        <i class="fas fa-search"></i>
+      </div>
+    </div>
+    <div fxFlex fxLayout="row" fxLayoutAlign="space-around center" *ngIf="admin">
+      <button mat-button fxLayout="row" fxLayoutAlign="start center">
+        <i class="fas fa-plus"></i>
+        <span> Criar Projeto</span>
+      </button>
+      <button mat-button fxLayout="row" fxLayoutAlign="start center" *ngIf="admin">
+        <i class="fas fa-user-plus"></i>
+        <span> Cadastrar Usuário</span>
+      </button>
+      <button mat-button fxLayout="row" fxLayoutAlign="start center" *ngIf="admin">
+        <i class="fas fa-user-tie"></i>
+        <span> Cadastrar Cliente</span>
+      </button>
+    </div>
+    <div fxFlex=33 fxLayout="row" fxLayoutAlign="end center" fxFlexFill>
+      <div fxLayout="row" fxLayoutAlign="space-around center" *ngIf="admin">
+        <button class="icon-button cog">
+          <i class="fas fa-cog fab-icon"></i>
+        </button>
+        <button class="icon-button expand-arrows">
+          <i class="fas fa-expand-arrows-alt fab-icon"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+</mat-toolbar>

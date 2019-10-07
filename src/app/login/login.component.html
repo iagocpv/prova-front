@@ -1,0 +1,27 @@
+<div id="background" fxFlexFill fxLayout="row" fxLayoutAlign="center center">
+  <div id="login-card" fxLayout="column" fxLayoutAlign="space-between center">
+    <img id="logo" src="assets/img/logo-p.jpg" fxFlex=27>
+    <span id="title" fxFlex=5>Projeto <b>Fácil</b></span>
+    <span class="grey-text"fxFlex=5>Acesse sua conta</span>
+
+    <form fxLayout="column" (ngSubmit)="onSubmit(loginForm)" #loginForm="ngForm" fxLayoutAlign="space-between center" fxFlex=55>
+      <div class="input" fxLayout="row" fxFlex=20>
+        <input type="text" placeholder="Nome de Usuário" name="name"fxFlex=90 ngModel>
+      </div>
+      <div class="input" fxLayout="row" fxFlex=20>
+        <input type="password" placeholder="Senha" fxFlex=90 name="password" ngModel>
+      </div>
+      <div class="row" fxLayout="row" fxLayoutAlign="space-between center" fxFlex=15>
+        <div fxLayout="row" fxFlex=61>
+          <div id="checkbox" fxLayout="row" fxLayoutAlign="center center" (click)="toggleKeepSigned()">
+              <i class="fas fa-check" *ngIf="keepSigned"></i>
+          </div>
+          <span class="grey-text">Manter Conectado</span>
+        </div>
+        <span id="blue-text" fxFlex>Esqueceu a Senha?</span>
+      </div>
+      <button mat-raised-button fxFlex=20>Acessar Conta</button>
+    </form>
+    
+  </div>
+</div>

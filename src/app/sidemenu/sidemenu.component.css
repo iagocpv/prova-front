@@ -1,0 +1,91 @@
+#sidemenu-content {
+    margin-left: 4%;
+    margin-top: 4%;
+    padding-right: 5%;
+}
+
+#user {
+    min-height: 7vw;
+    min-width: 100%;
+    font-size: 12px;
+}
+
+#menu {
+    min-height: 36vw;
+    min-width: 100%;
+    margin-left: 5%;
+}
+
+#profile-photo {
+    height: 57px;
+    width: 57px;
+    border-radius: 50px;
+    margin-top: -1%;
+}
+
+#job-role {
+    margin-bottom: 3%;
+}
+
+.fa-caret-down {
+    color: dimgray;
+}
+
+#user-text {
+    margin-top: -2%;
+    margin-left: -1%;
+}
+
+.divider {
+    border-style: dashed;
+    border-width: 1px;
+    width: 100%;
+    border-left: none;
+    border-right: none;
+    border-top: none;
+    margin-bottom: 2%;
+    border-color: rgb(231, 231, 231);
+}
+
+#menu {
+    padding-right: 5%;
+    padding-left: 5%;
+    padding-top: 10%;
+    color: dimgray;
+}
+
+.border {
+    min-height: 100%;
+    border-left: 2px solid rgba(2, 155, 206, 0.164);
+}
+
+.row {
+    width: 100%;
+}
+
+.menu-item {
+    min-width: 100%;
+    margin-bottom: 7%;
+}
+
+.menu-icon {
+    margin-right: 7%;
+    color: rgb(189, 189, 189);
+}
+
+.menu-sub-item {
+    margin-left: 3%;
+}
+
+.sub-item-row {
+    margin-bottom: 5%;
+}
+
+#profile {
+    min-width: 100%;
+}
+
+.expandible-menu-icon {
+    margin-right: 20%;
+    color: rgb(189, 189, 189);
+}

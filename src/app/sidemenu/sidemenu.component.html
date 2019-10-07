@@ -1,0 +1,110 @@
+<div id="sidemenu-content" fxLayout="column" fxLayoutAlign="start center">
+  
+  <div id="user" fxLayout="row" fxLayoutAlign="center center">
+    <div fxLayout="row" fxLayoutAlign="space-between center" fxFlex=30>
+        <img id="profile-photo" src="assets/img/einstein.jpg">
+    </div>
+    <div fxFlex=58 id="user-text" fxLayout="column">
+      <b id="job-role">{{(user$ | async).jobRole}}</b>
+      <span>
+        {{(user$ | async).name}}
+      </span>
+    </div>
+    <i class="fas fa-caret-down" fxFlex=5></i>
+  </div>
+  <span class="divider"></span>
+
+  <div id="menu" fxLayout="column" fxLayoutAlign="start center" fxFlexFill>
+
+    <div class="menu-item">
+      <div fxLayout="row">
+        <i class="fas fa-home menu-icon"></i>
+        <b>Dashboard</b>
+      </div>
+    </div>
+
+    <div class="menu-item" *ngIf="admin">
+      <div fxLayout="row" fxLayoutAlign="space-between center">
+        <div fxLayout="row">
+          <i class="fas fa-tools expandible-menu-icon"></i>
+          <span>Cadastros</span>
+        </div>
+        <button mat-icon-button (click)="toggleRegister()">
+          <i class="fas fa-angle-up menu-icon" *ngIf="register"></i>
+          <i class="fas fa-angle-down menu-icon" *ngIf="!register"></i>
+        </button>
+      </div>
+      <div class="menu-sub-item" fxLayout="row" fxLayoutAlign="space-around" *ngIf="register">
+        <div class="border" fxFlex=15></div>
+        <div fxLayout="column" fxLayoutAlign="start start" fxFlex>
+          <span class="sub-item-row">Usuários</span>
+          <span class="sub-item-last-row">Clientes</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-item">
+      <div fxLayout="row" fxLayoutAlign="space-between center">
+        <div fxLayout="row">
+          <i class="fas fa-project-diagram expandible-menu-icon"></i>
+          <span>Projetos</span>
+        </div>
+        <button mat-icon-button (click)="toggleProjects()">
+          <i class="fas fa-angle-up menu-icon" *ngIf="projects"></i>
+          <i class="fas fa-angle-down menu-icon" *ngIf="!projects"></i>
+        </button>
+      </div>
+      <div class="menu-sub-item" fxLayout="row" fxLayoutAlign="space-around" *ngIf="projects">
+        <div class="border" fxFlex=15></div>
+        <div fxLayout="column" fxLayoutAlign="start start" fxFlex>
+          <span class="sub-item-row" *ngIf="admin">Criar projeto</span>
+          <span class="sub-item-row">Relatórios</span>
+          <span class="sub-item-last-row">Registros</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-item">
+      <div fxLayout="row" fxLayoutAlign="space-between center">
+        <div fxLayout="row">
+          <i class="far fa-user expandible-menu-icon"></i>
+          <span id="profile">Meu Perfil</span>
+        </div>
+        <button mat-icon-button (click)="toggleProfile()">
+          <i class="fas fa-angle-up menu-icon" *ngIf="profile"></i>
+          <i class="fas fa-angle-down menu-icon" *ngIf="!profile"></i>
+        </button>
+      </div>
+      <div class="menu-sub-item" fxLayout="row" fxLayoutAlign="space-around" *ngIf="profile">
+        <div class="border" fxFlex=15></div>
+        <div fxLayout="column" fxLayoutAlign="start start" fxFlex>
+          <span class="sub-item-row">Trocar Senha</span>
+          <span class="sub-item-last-row">Editar Perfil</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-item">
+      <div>
+        <i class="fas fa-stopwatch menu-icon"></i>
+        <span>Ver registro de horas</span>
+      </div>
+    </div>
+
+    <div class="menu-item">
+      <div>
+        <i class="fas fa-tools menu-icon"></i>
+        <span>Configurações</span>
+      </div>
+    </div>
+
+    <div class="menu-item">
+      <div>
+        <i class="fas fa-sign-out-alt menu-icon"></i>
+        <span>Sair do sistema</span>
+      </div>
+    </div>
+
+  </div>
+
+</div>

@@ -1,0 +1,89 @@
+#background {
+    background-image: url(src/assets/img/login-background.jpg);
+}
+
+#login-card {
+    background-color: white;
+    height: 35vw;
+    width: 25vw;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px gray;
+    padding-left: 1.5%;
+    padding-right: 1.5%;
+    padding-top: 1.5%;
+    padding-bottom: 1.5%;
+}
+
+button {
+    color: white;
+    background-color: rgb(2, 155, 206);
+    width: 100%;
+    height: 10%;
+}
+
+#logo {
+    height: 9vw;
+    width: 9vw;
+}
+
+#title {
+    margin-top: -5%;
+    font-size: 24px;
+}
+
+.grey-text {
+    color: rgb(156, 156, 156);
+}
+
+#blue-text {
+    color: rgb(2, 155, 206);
+    margin-bottom: 1.5%;
+}
+
+.grey-text, #blue-text {
+    font-size: 12px;
+}
+
+.row {
+    width: 100%;
+}
+
+#checkbox {   
+    margin-right: 3%;
+    margin-bottom: 3%;
+    height: 15px;
+    width: 15px;
+    background-color: rgb(248, 247, 247);
+    border: 1px solid rgb(156, 156, 156);
+    border-radius: 6px;
+}
+
+#checkbox:hover {
+    background-color: rgb(212, 211, 211);
+}
+
+.fa-check {
+    color: rgb(2, 155, 206);
+}
+
+form {
+    width: 100%;
+}
+
+.input {
+    background-color: rgb(248, 247, 247);
+    border-radius: 5px;
+    border-color: rgb(156, 156, 156);
+    border-width: 1px;
+    border-style: solid;
+    width: 100%;
+    color: gray;
+    margin-top: -3%;
+}
+
+input {
+    border: none;
+    background-color: rgb(248, 247, 247);
+    color: rgb(156, 156, 156);
+    margin-left: 5%;
+}

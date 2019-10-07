@@ -1,16 +1,16 @@
-<mat-toolbar class="toolbar">
-  <img id="logo" src="assets/img/logo-p.jpg">
-  <span id="title">Projeto <b>Fácil</b></span>
-</mat-toolbar>
-<main>
-  <mat-drawer-container class="main-container">
-    <mat-drawer mode="side" opened>
-      <div id="sidenav-content">
-        Sidemenu
-      </div> 
-    </mat-drawer>
-    <mat-drawer-content>Main content</mat-drawer-content>
-  </mat-drawer-container>      
+<app-toolbar *ngIf="user$ | async"></app-toolbar>
+<main fxLayout="row" fxLayoutAlign="start start" fxFill>
+  <app-sidemenu *ngIf="user$ | async" fxFlex=19.6></app-sidemenu> 
+  <div class="main-container" fxFlex fxLayout="column" fxLayoutAlign="space-between">
+    <app-login *ngIf="!(user$ | async)"></app-login>
+    <app-dashboard fxFlex=89.5  *ngIf="user$ | async"></app-dashboard>
+    <footer fxFlex fxFill fxLayout="row" *ngIf="user$ | async">
+      <span fxFlex=65>2019 Desenvolvido com muito <i class="fas fa-coffee"></i></span>
+      <div fxFlex fxLayout="row" fxLayoutAlign="space-around center">
+        <span>Dashboard</span>
+        <span>Alterar plano</span>
+        <span>Ajuda & Suporte</span>
+      </div>
+    </footer>
+  </div>
 </main>
-
-<router-outlet></router-outlet>

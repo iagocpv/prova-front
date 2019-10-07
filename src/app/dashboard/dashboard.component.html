@@ -1,0 +1,85 @@
+<main fxLayout="column">
+  <div id="breadcrumb" fxFlex=5>Home/Dashboard</div>
+  <div id="greetings" fxFlex=17>
+    <h2>Olá <span id="name">{{(user$ | async).name}}</span>, bem vindo!</h2>
+    <span>Veja o andamento dos projetos</span>
+  </div>
+
+  <div id="cards" fxLayout="row" fxLayoutAlign="space-between start">
+    <div id="main-card" fxFlex fxLayout="column" fxLayoutAlign="start start">
+      <span id="card-title" fxFlex=5>Listagem de Projetos</span>
+      <div id="filter" fxFlex=8 fxLayout="row" fxLayoutAlign="space-between center">
+        <div class="custom-select" fxLayout="row" fxLayoutAlign="start center">
+          <i class="fas fa-filter"></i>
+          <select>
+            <option>Todos os registros no projeto</option>
+            <option>Todos os usuários</option>
+          </select>
+        </div>
+        <div fxFlex=27 id="hours-header" fxLayout="row" fxLayoutAlign="start end" fxLayoutGap="10%">
+          <div>Horas Lançadas</div>
+          <div>Horas Faltantes</div>
+        </div>
+      </div>
+      <div fxFill fxLayout="column" fxLayoutAlign="start center" id="card-content" fxLayoutGap="4%" fxFlex>
+  
+        <div class="project-container">
+          <div class="project" fxLayout="column">
+            <div class="project-details" fxFlex=80 fxLayout="row">
+              <div fxFlex=6>
+                <div class="company-img" fxLayoutAlign="center center">
+                  <b>T</b>
+                </div>
+              </div>
+              <div fxFlex fxLayout="row" fxLayoutAlign="space-between start" fxFill> 
+                <div class="project-content" fxFlex=75 fxLayout="column">
+                  <div>
+                    <b>Tamby Papelaria </b><i class="fas fa-caret-right"></i> <b>Desenvolvimento</b>
+                  </div>
+                  <span>Sistema para gestão de estoque</span>
+                </div>
+                <div class="hours" fxFlex=23 fxFill fxLayout="row" fxLayoutGap="15%">
+                  <span><i class="far fa-clock"></i> 08:00</span>
+                  <div class="border"></div>
+                  <span><i class="far fa-clock"></i> 10:00</span>
+                </div>
+                <i class="fas fa-ellipsis-h" fxFlex></i>
+              </div>
+            </div>
+            <div class="project-ending" fxFlex>
+              <i class="far fa-calendar-alt"></i>
+              Termina em 6 de julho
+            </div>
+          </div>
+          <div class="progress">
+            <div class="bar">
+            </div>
+          </div>
+        </div>
+  
+      </div>
+    </div>
+
+    <div id="calendar-card" *ngIf="(user$ | async).role !== 'admin'" fxFlex=20 fxLayout="column">
+      <b id="title">Apontamento de Horas</b>
+      <span><i class="far fa-calendar-alt"></i>03 à 07 de junho</span>
+
+      <div class="week" fxLayout="row" fxLayoutAlign="space-between center">
+        <div *ngFor="let day of week">
+          <b class="day">
+            {{day.day}}
+          </b>
+          <span>
+            {{day.hours}}h
+          </span>
+        </div>
+      </div>
+
+      <b class="last-row">
+        [ Ver relatório completo ]
+      </b>
+    </div>
+  </div>
+
+  
+</main>

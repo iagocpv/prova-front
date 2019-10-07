@@ -1,0 +1,77 @@
+.toolbar {
+    background-color: white;
+    position: fixed;
+    top: 0;
+    box-shadow: 2px 2px 5px rgb(231, 231, 231);
+}
+#title {
+    font-size: 14px;
+    margin-left: 5%;
+    margin-top: 0.5%;
+}
+
+#toolbar-options {
+    font-size: 12px;
+    color: dimgray;
+}
+
+#toolbar-options button {
+    margin-top: 0.5%;
+    font-size: 12px;
+}
+
+mat-icon {
+    margin-top: 0.5%;
+}
+
+#toolbar-options mat-icon {
+    font-size: 150%;
+    margin-top: 3%;
+}
+
+#logo {
+    height: 34px;
+    width: 34px;
+    margin-right: 1%;
+    margin-left: 0.5%;
+}
+
+.input {
+    border-radius: 25px;
+    border-color: rgb(231, 231, 231);
+    border-width: 1px;
+    height: 38px;
+    border-style: solid;
+    width: 80%;
+    color: gray;
+}
+
+.fa-bars {
+    margin-left: 30%;
+    font-size: 16px;
+}
+
+input {
+    margin-left: 3%;
+    border: none;
+}
+
+.icon-button {
+    height: 35px;
+    width: 35px;
+    border: none;
+    border-radius: 50px;
+}
+
+.expand-arrows {
+    background-color: deeppink;
+}
+
+.cog {
+    margin-left: -10%;
+    background-color: rgba(255, 0, 0, 0.568);
+}
+
+.fab-icon {
+    color: white;
+}
