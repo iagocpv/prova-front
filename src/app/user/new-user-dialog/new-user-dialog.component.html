@@ -1,0 +1,46 @@
+<div id="title" fxLayout="row" fxLayoutAlign="space-between center">
+  <span>Cadastrar Usuário</span>
+  <button mat-icon-button (click)="closeDialog()">
+    <mat-icon>close</mat-icon>
+  </button>  
+</div>
+
+<form fxLayout="column" fxLayoutAlign="space-between">
+
+  <div>
+
+    <div class="input">
+      <input placeholder="Nome do usuário" fxFlex=90>
+    </div>
+  
+    <div class="input">
+      <input placeholder="CPF" fxFlex=90>
+    </div>
+  
+    <div class="input">
+      <input placeholder="Digite o email (Será o login de acesso)" fxFlex=90>
+    </div>
+  
+    <div fxLayout="row" id="role">
+      <b fxFlex=20>Permissão</b>
+      <i class="fas fa-info-circle" fxFlex=15></i>
+      <div fxFlex=35>
+        <i class="far fa-dot-circle checked" *ngIf="roleAdmin"></i>
+        <i class="far fa-circle" *ngIf="!roleAdmin" (click)="toggleAdmin(true)"></i>
+        <span> Administrador</span>
+      </div>
+      <div fxFlex>
+        <i class="far fa-dot-circle checked" *ngIf="!roleAdmin"></i>
+        <i class="far fa-circle" *ngIf="roleAdmin" (click)="toggleAdmin(false)"></i>
+        <span> Usuário</span>
+      </div>
+    </div>
+
+    <button mat-button>+ Atribuir projetos a este usuário</button>
+
+  </div>
+
+
+  <button mat-raised-button id="submit-button" (click)="closeDialog()">Cadastrar Usuário</button>
+
+</form>

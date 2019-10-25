@@ -1,0 +1,8 @@
+footer {
+    color: dimgray;
+    height: 70px;
+    width: 100%;
+    padding-left: 2.5%;
+    background-color: white;
+    box-shadow: 1px 0 3px 1px rgb(231, 231, 231);
+}

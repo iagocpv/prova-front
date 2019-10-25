@@ -1,21 +1,21 @@
-main {
-    margin-top: 4.7%;
-}
-
 .main-container {
-    height: 110%;
+    margin-top: 4.7%;
+    height: 114.5%;
     max-width: 100%;
+    overflow: auto;
 }
 
 app-sidemenu {
-    box-shadow: 1px 0 3px rgb(231, 231, 231);
-    height: 110%;
+    margin-top: 4.7%;
+    width: 19.4%;
+    transition: margin 0.2s;
+    /* box-shadow: 0px 0 3px rgb(212, 212, 212); */
 }
 
-footer {
-    color: dimgray;
-    width: 100%;
-    background-color: white;
-    padding: 2.5%;
-    box-shadow: 1px 0 3px 1px rgb(231, 231, 231);
+app-footer {
+    bottom: 0;
+    position: fixed;
+    z-index: 1;
+    width: 81.6%;
+    transition: width 0.2s;
 }

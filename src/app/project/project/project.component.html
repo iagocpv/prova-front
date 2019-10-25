@@ -1,0 +1,85 @@
+<div class="project" fxLayout="column" *ngIf="project && companies">
+  <div class="project-details" fxFlex=70 fxLayout="row" fxLayoutAlign="space-between start">
+
+    <ng-container *ngIf="filter === 'Todos os usuários'; else elseTemplate">
+
+      <div fxLayout="row" fxFlex>  
+        <div class="company-img" [style.background-color]="companies[i].color" fxLayoutAlign="center center">
+          <b>{{companies[i].letter}}</b>
+        </div>  
+        <div class="project-content" fxLayout="column">
+          <div>
+            <b>{{users[i].name}} </b><i class="fas fa-caret-right"></i> <b>{{companies[i].name}} ({{project.name}})</b>
+          </div>
+          <span>{{project.description}}</span>
+        </div>  
+      </div>
+      
+    </ng-container>
+    <ng-template #elseTemplate>
+      
+      <div fxLayout="row" fxFlex>  
+        <div class="company-img" [style.background-color]="companies[i].color" fxLayoutAlign="center center">
+          <b>{{companies[i].letter}}</b>
+        </div>  
+        <div class="project-content" fxLayout="column">
+          <div>
+            <b>{{companies[i].name}} </b><i class="fas fa-caret-right"></i> <b>{{project.name}}</b>
+          </div>
+          <span>{{project.description}}</span>
+        </div>  
+      </div>
+
+    </ng-template>
+
+    <div fxLayout="row" fxLayoutAlign="space-between center">
+      <div fxLayout="row" fxLayoutGap="15%"  class="hours">
+        <span><i class="far fa-clock"></i> {{project.currentHours}}:00</span>
+        <div class="border"></div>
+        <span [style.color]="completed(project.currentHours, project.totalHours)">
+          <i class="far fa-clock"></i> {{remainingHours(project.totalHours, project.currentHours)}}
+        </span>
+      </div>
+
+      <button id="project-menu" [matMenuTriggerFor]="menu" mat-icon-button>
+        <i class="fas fa-ellipsis-h"></i>
+      </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item (click)="showDetails()">Ver detalhes</button>
+        <button mat-menu-item *ngIf="isAdmin()" (click)="newAppointment(companies[i].name)">
+          Informar horas trabalhadas
+        </button>
+      </mat-menu>
+    </div>
+    
+    
+  </div>
+  
+  <div class="project-ending" fxFlex>
+    <i class="far fa-calendar-alt"></i>
+    Termina em 6 de julho
+  </div>
+
+  <div *ngIf="details" id="project-obs">
+    <div class="divider"></div>
+    <div fxLayout="column" fxLayoutGap="10px">
+      <div id="project-obs-header">
+        <span fxFlex>Obs.</span>
+        <span class="center" fxFlex=15>Data</span>
+        <span class="center" fxFlex=15>Horas Trabalhadas</span>
+      </div>
+      <div fxLayout="row" *ngFor="let details of projectDetails">
+        <span fxFlex>{{details.obs}}</span>
+        <span class="center" fxFlex=15>{{details.date}}</span>
+        <b class="center" fxFlex=15>{{details.hours}}</b>
+      </div>
+    </div>
+  </div>
+
+</div>           
+
+<div class="progress" *ngIf="companies && project">
+  <div class="bar" 
+    [style.width]="currentPercentage(project.currentHours, project.totalHours)">
+  </div>
+</div>

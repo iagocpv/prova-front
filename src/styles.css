@@ -9,3 +9,19 @@ body {
     font-family: 'Roboto', "Helvetica Neue", sans-serif;
     font-size: 15px;
 }
+
+.custom-dialog-container .mat-dialog-container {
+    padding-top: 3%;
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-bottom: 1%;
+    color: dimgray;
+}
+
+.mat-form-field-outline {
+    height: 45px;
+}
+
+.center {
+    text-align: center;
+}

@@ -1,23 +1,52 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { first } from 'rxjs/operators';
 import { User } from '../user';
+import { HttpClient } from '@angular/common/http';
+import { environment } from './../../environments/environment';
 
 @Injectable({ providedIn: 'root' })
 export class LoginService {
 
-    user = new BehaviorSubject<User>(null);
+    apiUrl = environment.api;
 
-    constructor() {}
+    user$ = new BehaviorSubject<User>(null);
 
-    getUser() {
-        return this.user.asObservable();
+    constructor(private http: HttpClient) {}
+
+    getLoggedUser() {
+        return this.user$.asObservable();
+    }
+
+    findAll() {
+        return this.http.get<User[]>(`${this.apiUrl}/users`);
     }
 
     isAdmin() {
-        return this.user.getValue().role === 'admin';
+        return this.user$.getValue().role === 'admin';
     }
 
-    login(user: User) {
-        this.user.next(user);
+    login(email: String) {
+
+        this.findAll()
+        .pipe(first())
+        .subscribe( users => {
+            users.forEach( user => {
+                if (user.email === email) {
+                    this.user$.next(user);
+                }
+            });
+
+            if (this.user$.getValue() === null) {
+                this.user$.next(users[Math.floor(Math.random() * users.length)]);
+            }
+        }, () => {
+            alert('Falha no login');
+        }
+        );
+    }
+
+    logout() {
+        this.user$.next(null);
     }
 }

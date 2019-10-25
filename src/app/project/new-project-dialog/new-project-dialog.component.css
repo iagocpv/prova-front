@@ -1,0 +1,140 @@
+mat-icon {
+    font-size: 12px;
+}
+
+#title {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+#title span {
+    font-size: 18px;
+}
+
+#title button {
+    position: relative;
+    margin-right: -4%;
+}
+
+.input, .client-input {
+    height: 40px;
+}
+
+.input, .client, .client-input, #total-time, #end {
+    border-radius: 5px;
+    border-color: rgb(219, 219, 219);
+    border-width: 1px;
+    border-style: solid;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.client {
+    min-height: 40px;
+    color: rgb(128, 128, 128);
+    font-size: 13px;
+}
+
+.client-header {
+    margin-left: 5%;
+}
+
+.client-input {
+    width: 90%;
+    margin-left: 5%;
+}
+
+#client-not-found {
+    text-align: center;
+    margin-bottom: 10px;
+    width: 90%;
+    margin-left: 7%;
+}
+
+#client-not-found b {
+    font-size: 12px;
+}
+
+.fa-search {
+    width: 2%;
+    margin-left: 3%;
+}
+
+.fa-plus {
+    color: rgb(12, 211, 62);
+}
+
+input {
+    color: rgb(46, 46, 46);
+    border: none;
+    margin-left: 5%;
+}
+
+.fa-info-circle {
+    color: rgb(202, 202, 202);
+    margin-top: 1px;
+}
+
+#private {
+    margin-top: 25px;
+    margin-bottom: 20px;
+}
+
+#private b {
+    width: 30%;
+}
+
+#private i {
+    width: 15%;
+}
+
+#private .far {
+    cursor: pointer;
+}
+
+#private div {
+    width: 25%;
+}
+
+.checked {
+    color: rgb(2, 204, 204);
+}
+
+.form-field {
+    width: 100%;
+    font-size: 13px;
+}
+
+#total-time {
+    width: 50%;
+    height: 60px;
+}
+
+#total-time input {
+    width: 33px;
+    color: rgb(128, 128, 128);
+}
+
+#end {
+    width: 40%;
+    height: 40px;
+}
+
+.fa-calendar-alt {
+    margin-left: 8%;
+}
+
+#end input {
+    width: 100px;
+}
+
+#submit-button {
+    background-color: rgb(2, 204, 204);
+    color: white;
+    width: 100%;
+}
+
+form {
+    min-height: 87%;
+    max-height: 87%;
+}

@@ -1,16 +1,16 @@
-<app-toolbar *ngIf="user$ | async"></app-toolbar>
-<main fxLayout="row" fxLayoutAlign="start start" fxFill>
-  <app-sidemenu *ngIf="user$ | async" fxFlex=19.6></app-sidemenu> 
-  <div class="main-container" fxFlex fxLayout="column" fxLayoutAlign="space-between">
-    <app-login *ngIf="!(user$ | async)"></app-login>
-    <app-dashboard fxFlex=89.5  *ngIf="user$ | async"></app-dashboard>
-    <footer fxFlex fxFill fxLayout="row" *ngIf="user$ | async">
-      <span fxFlex=65>2019 Desenvolvido com muito <i class="fas fa-coffee"></i></span>
-      <div fxFlex fxLayout="row" fxLayoutAlign="space-around center">
-        <span>Dashboard</span>
-        <span>Alterar plano</span>
-        <span>Ajuda & Suporte</span>
-      </div>
-    </footer>
+<app-toolbar (menu)="toggleMenu($event)" *ngIf="user$ | async"></app-toolbar>
+
+<main id="main" fxLayout="row" fxLayoutAlign="start start">
+
+  <app-sidemenu id="menu" *ngIf="user$ | async"></app-sidemenu> 
+
+  <div class="main-container" fxFlex fxLayout="column" fxFlexfxLayoutAlign="space-between">
+
+    <app-login fxFlex *ngIf="!(user$ | async)"></app-login>
+
+    <app-dashboard fxFlex *ngIf="user$ | async"></app-dashboard>
+
+    <app-footer id="footer" fxFlex=10 *ngIf="user$ | async"></app-footer>
+    
   </div>
 </main>

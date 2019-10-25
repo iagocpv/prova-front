@@ -66,6 +66,7 @@
 .menu-item {
     min-width: 100%;
     margin-bottom: 7%;
+    cursor: pointer;
 }
 
 .menu-icon {
@@ -81,11 +82,7 @@
     margin-bottom: 5%;
 }
 
-#profile {
-    min-width: 100%;
-}
-
 .expandible-menu-icon {
-    margin-right: 20%;
+    width: 15%;
     color: rgb(189, 189, 189);
 }

@@ -1,0 +1,86 @@
+<div id="title" fxLayout="row" fxLayoutAlign="space-between center">
+  <span>Criar Projeto</span>
+  <button mat-icon-button (click)="closeDialog()">
+    <mat-icon>close</mat-icon>
+  </button>
+</div>
+
+<form fxLayout="column" fxLayoutAlign="space-between" [formGroup]="form">
+  
+  <div>    
+    <div class="input">
+      <input placeholder="Nome do projeto" formControlName="name" fxFlex=90 autofocus>
+    </div>
+  
+    <div class="client" fxLayout="column">
+      
+      <div fxLayout="row" fxLayoutAlign="space-between center" class="client-header">
+        <span>Selecione o cliente</span>
+        <button mat-icon-button (click)="toggleClient()">
+          <i class="fas fa-angle-up menu-icon" *ngIf="clientDropdown"></i>
+          <i class="fas fa-angle-down menu-icon" *ngIf="!clientDropdown"></i>
+        </button>
+      </div>
+  
+      <div *ngIf="clientDropdown" class="client-input" fxLayout="row" fxLayoutAlign="start center">
+        <i class="fas fa-search"></i>
+        <input placeholder="Nome do cliente" formControlName="companyName" name="companyName" matInput fxFlex=90
+          autofocus [matAutocomplete]="auto" type="text">
+        <mat-autocomplete #auto="matAutocomplete">
+          <mat-option *ngFor="let company of filteredCompanies$ | async" [value]="company.name">
+            {{ company.name }}
+          </mat-option>
+        </mat-autocomplete>
+      </div>
+
+      <div *ngIf="clientDropdown && (filteredCompanies$ | async).length == 0" id="client-not-found" fxLayout="row" fxLayoutAlign="space-between center">
+        <b>
+          Cliente não encontrado
+        </b>
+        <button mat-button fxLayout="row">
+          <i class="fas fa-plus"></i>
+          <b> Adicionar Cliente</b>
+        </button>          
+      </div>
+  
+    </div>
+  
+    <div fxLayout="row" id="private">
+      <b>Projeto privado</b>
+      <i class="fas fa-info-circle"></i>
+      <div>
+        <i class="far fa-dot-circle checked" *ngIf="private"></i>
+        <i class="far fa-circle" *ngIf="!private" (click)="togglePrivate(true)"></i>
+        <span> Sim</span>
+      </div>
+      <div>
+        <i class="far fa-dot-circle checked" *ngIf="!private"></i>
+        <i class="far fa-circle" *ngIf="private" (click)="togglePrivate(false)"></i>
+        <span> Não</span>
+      </div>
+    </div>
+  
+    <div class="time" fxLayout="row" fxLayoutAlign="space-around center">
+      <div id="total-time" fxLayout="column" fxLayoutAlign="space-around center">
+        <span>Tempo Total</span>
+        <input formControlName="totalHours" placeholder="00:00">
+      </div>
+      <div id="end" fxLayout="row" fxLayoutAlign="start center">
+        <i class="far fa-calendar-alt"></i>
+        <input formControlName="end" placeholder="6 de junho">
+      </div>
+    </div>
+  
+    <mat-form-field appearance="outline" class="form-field">
+      <mat-label>Adicionar usuários</mat-label>
+      <mat-select formControlName="users" multiple>
+        <mat-option *ngFor="let user of users" [value]="user.id">{{user.name}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+
+  <button mat-raised-button id="submit-button" (click)="closeDialog()">Criar Projeto</button>
+
+</form>
+  
+

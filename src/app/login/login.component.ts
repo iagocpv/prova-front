@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from '../user';
 import { LoginService } from './login.service';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -14,10 +12,7 @@ export class LoginComponent implements OnInit {
   name: String;
   password: String;
 
-  admin: User = {name: 'José Severino', role: 'admin', jobRole: 'Dashboard Admin'};
-  user: User = {name: 'Adam Henrique', role: 'user', jobRole: 'Analista de Sistemas'};
-
-  constructor(private loginService: LoginService, private router: Router) { }
+  constructor(private loginService: LoginService) { }
 
   ngOnInit() {
   }
@@ -27,12 +22,6 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit(loginForm) {
-    if (loginForm.value.name === 'admin') {
-      this.loginService.login(this.admin);
-      this.router.navigate(['dashboard']);
-    } else {
-      this.loginService.login(this.user);
-      this.router.navigate(['dashboard']);
-    }
+    this.loginService.login(loginForm.value.email);
   }
 }

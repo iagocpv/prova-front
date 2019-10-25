@@ -1,0 +1,27 @@
+<div id="title" fxLayout="row" fxLayoutAlign="space-between center">
+  <span>Insira horas trabalhadas</span>
+  <button mat-icon-button (click)="closeDialog()">
+    <mat-icon>close</mat-icon>
+  </button>  
+</div>
+
+<div id="project">
+  <span><b>Projeto selecionado: </b>{{data.company}}</span>
+</div>
+
+<div class="input" fxLayout="row" fxLayoutAlign="space-between center">
+  <input matInput [matDatepicker]="picker" placeholder="Selecione a data">
+  <mat-datepicker-toggle matSuffix [for]="picker">
+    <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
+  </mat-datepicker-toggle>
+  <mat-datepicker #picker></mat-datepicker>
+</div>
+
+<span>Informe a quantidade de horas</span>
+
+<div id="total-time" fxLayout="column" fxLayoutAlign="space-around center">
+  <span>Tempo Total</span>
+  <input placeholder="00:00">
+</div>
+
+<button mat-raised-button id="submit-button" (click)="submit()">Gravar a quantidade de horas</button>

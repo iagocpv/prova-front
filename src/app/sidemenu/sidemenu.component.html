@@ -2,7 +2,7 @@
   
   <div id="user" fxLayout="row" fxLayoutAlign="center center">
     <div fxLayout="row" fxLayoutAlign="space-between center" fxFlex=30>
-        <img id="profile-photo" src="assets/img/einstein.jpg">
+        <img id="profile-photo" [src]="(user$ | async).avatar">
     </div>
     <div fxFlex=58 id="user-text" fxLayout="column">
       <b id="job-role">{{(user$ | async).jobRole}}</b>
@@ -14,7 +14,7 @@
   </div>
   <span class="divider"></span>
 
-  <div id="menu" fxLayout="column" fxLayoutAlign="start center" fxFlexFill>
+  <div id="menu" fxLayout="column" fxLayoutAlign="start center">
 
     <div class="menu-item">
       <div fxLayout="row">
@@ -24,16 +24,18 @@
     </div>
 
     <div class="menu-item" *ngIf="admin">
-      <div fxLayout="row" fxLayoutAlign="space-between center">
-        <div fxLayout="row">
-          <i class="fas fa-tools expandible-menu-icon"></i>
+      <div fxLayout="row" fxLayoutAlign="start center">
+        <i class="fas fa-tools expandible-menu-icon" fxFlex=15></i>
+        <div fxLayout="row" fxFlex fxLayoutAlign="space-between center">
           <span>Cadastros</span>
+          <button mat-icon-button (click)="toggleRegister()">
+            <i class="fas fa-angle-up menu-icon" *ngIf="register"></i>
+            <i class="fas fa-angle-down menu-icon" *ngIf="!register"></i>
+          </button>
         </div>
-        <button mat-icon-button (click)="toggleRegister()">
-          <i class="fas fa-angle-up menu-icon" *ngIf="register"></i>
-          <i class="fas fa-angle-down menu-icon" *ngIf="!register"></i>
-        </button>
+        
       </div>
+
       <div class="menu-sub-item" fxLayout="row" fxLayoutAlign="space-around" *ngIf="register">
         <div class="border" fxFlex=15></div>
         <div fxLayout="column" fxLayoutAlign="start start" fxFlex>
@@ -44,16 +46,17 @@
     </div>
 
     <div class="menu-item">
-      <div fxLayout="row" fxLayoutAlign="space-between center">
-        <div fxLayout="row">
-          <i class="fas fa-project-diagram expandible-menu-icon"></i>
+      <div fxLayout="row" fxLayoutAlign="start center">
+        <i class="fas fa-project-diagram expandible-menu-icon" fxFlex=15></i>
+        <div fxLayout="row" fxFlex fxLayoutAlign="space-between center">
           <span>Projetos</span>
-        </div>
-        <button mat-icon-button (click)="toggleProjects()">
-          <i class="fas fa-angle-up menu-icon" *ngIf="projects"></i>
-          <i class="fas fa-angle-down menu-icon" *ngIf="!projects"></i>
-        </button>
+          <button mat-icon-button (click)="toggleProjects()">
+            <i class="fas fa-angle-up menu-icon" *ngIf="projects"></i>
+            <i class="fas fa-angle-down menu-icon" *ngIf="!projects"></i>
+          </button>
+        </div>          
       </div>
+
       <div class="menu-sub-item" fxLayout="row" fxLayoutAlign="space-around" *ngIf="projects">
         <div class="border" fxFlex=15></div>
         <div fxLayout="column" fxLayoutAlign="start start" fxFlex>
@@ -65,16 +68,17 @@
     </div>
 
     <div class="menu-item">
-      <div fxLayout="row" fxLayoutAlign="space-between center">
-        <div fxLayout="row">
-          <i class="far fa-user expandible-menu-icon"></i>
+      <div fxLayout="row" fxLayoutAlign="start center">
+        <i class="fas fa-user expandible-menu-icon" fxFlex=15></i>
+        <div fxLayout="row" fxFlex fxLayoutAlign="space-between center">
           <span id="profile">Meu Perfil</span>
+          <button mat-icon-button (click)="toggleProfile()">
+            <i class="fas fa-angle-up menu-icon" *ngIf="profile"></i>
+            <i class="fas fa-angle-down menu-icon" *ngIf="!profile"></i>
+          </button>
         </div>
-        <button mat-icon-button (click)="toggleProfile()">
-          <i class="fas fa-angle-up menu-icon" *ngIf="profile"></i>
-          <i class="fas fa-angle-down menu-icon" *ngIf="!profile"></i>
-        </button>
       </div>
+
       <div class="menu-sub-item" fxLayout="row" fxLayoutAlign="space-around" *ngIf="profile">
         <div class="border" fxFlex=15></div>
         <div fxLayout="column" fxLayoutAlign="start start" fxFlex>
@@ -101,7 +105,7 @@
     <div class="menu-item">
       <div>
         <i class="fas fa-sign-out-alt menu-icon"></i>
-        <span>Sair do sistema</span>
+        <span (click)="logout()">Sair do sistema</span>
       </div>
     </div>
 

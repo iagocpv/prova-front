@@ -1,0 +1,74 @@
+#title {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+#title span {
+    font-size: 18px;
+}
+
+#title button {
+    position: relative;
+    margin-right: -4%;
+}
+
+mat-icon {
+    font-size: 12px;
+}
+
+.input {
+    border-radius: 5px;
+    border-color: rgb(219, 219, 219);
+    border-width: 1px;
+    border-style: solid;
+    width: 100%;
+    margin-bottom: 15px;
+    height: 40px;
+}
+
+input {
+    color: rgb(46, 46, 46);
+    border: none;
+    margin-left: 5%;
+}
+
+#role {
+    margin-top: 25px;
+    margin-bottom: 20px;
+}
+
+#role b {
+    width: 30%;
+}
+
+#role i {
+    width: 15%;
+}
+
+#role .far {
+    cursor: pointer;
+}
+
+#role div {
+    width: 25%;
+}
+
+.checked {
+    color: rgb(2, 204, 204);
+}
+
+.fa-info-circle {
+    color: rgb(202, 202, 202);
+    margin-top: 1px;
+}
+
+#submit-button {
+    background-color: rgb(2, 204, 204);
+    color: white;
+    width: 100%;
+}
+
+form {
+    min-height: 83%;
+    max-height: 83%;
+}

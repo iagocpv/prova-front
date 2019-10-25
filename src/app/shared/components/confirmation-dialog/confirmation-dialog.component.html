@@ -1,0 +1,20 @@
+<div fxLayout="column" fxLayoutAlign="start center">
+  <div id="warning-circle" fxLayoutAlign="center center">
+    <div fxLayout="column" fxLayoutAlign="space-between center">
+      <div id="trace"></div>
+      <div id="point"></div>
+    </div>
+  </div>
+
+  <h1>Aviso!</h1>
+
+  <p>Você tem certeza que deseja registrar a quantidade de horas para o projeto <b>{{data.company}}?</b></p>
+
+  <div fxLayout="row" fxFlexAlign="end" fxLayoutGap="20px">
+
+    <button class="cancel-button" mat-raised-button (click)="closeDialog()">Cancelar</button>
+    <button class="submit-button" mat-raised-button (click)="closeDialog()">Sim, registrar!</button>
+
+  </div>
+
+</div>

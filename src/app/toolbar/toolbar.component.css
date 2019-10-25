@@ -1,6 +1,7 @@
 .toolbar {
     background-color: white;
-    position: fixed;
+    position: absolute;
+    width: 100%;
     top: 0;
     box-shadow: 2px 2px 5px rgb(231, 231, 231);
 }
@@ -42,8 +43,9 @@ mat-icon {
     border-width: 1px;
     height: 38px;
     border-style: solid;
-    width: 80%;
+    width: 225px;
     color: gray;
+    margin-left: 50px;
 }
 
 .fa-bars {

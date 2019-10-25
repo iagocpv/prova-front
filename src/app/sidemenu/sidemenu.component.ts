@@ -19,7 +19,7 @@ export class SidemenuComponent implements OnInit {
   constructor(private loginService: LoginService) { }
 
   ngOnInit() {
-    this.user$ = this.loginService.getUser();
+    this.user$ = this.loginService.getLoggedUser();
     this.admin = this.loginService.isAdmin();
     if (this.admin) {
       document.getElementById('job-role').style.color = 'red';
@@ -36,6 +36,10 @@ export class SidemenuComponent implements OnInit {
 
   toggleProfile() {
     this.profile = !this.profile;
+  }
+
+  logout() {
+    this.loginService.logout();
   }
 
 }
